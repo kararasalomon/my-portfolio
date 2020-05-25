@@ -1,0 +1,291 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* customs properties i can update for my own deseign */
+:root {
+  --ff-primary: "Open Sans", sans-serif;
+  --ff-secondary: "source code pro", monospace;
+  --fw-reg: 300;
+  --fw-bold: 900;
+  --clr-light: #fff;
+  --clr-dark: 303030;
+  --clr-accent: #16e0bd;
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.52),
+    0.125em 0.125em 0.25em rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 800px) {
+  :root {
+    --fs-h1: 4.5rem;
+    --fs-h2: 3.75rem;
+    --fs-h3: 1.5rem;
+    --fs-body: 1.125rem;
+  }
+}
+/* general style turibuze gukoresha*/
+
+body {
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  margin: 0px;
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+section {
+  padding: 5em 2em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+span {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 900;
+}
+:focus {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+/* this is my butoon*/
+
+/*typographie*/
+h1,
+h2,
+h3 {
+  line-height: 1;
+  margin: 0;
+}
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+
+.section__title {
+  margin-bottom: 0.25em;
+}
+.section__title--intro {
+  font-weight: var(--fw-reg);
+}
+.section__title--intro span {
+  display: block;
+}
+
+.section__subtitle {
+  margin: 0;
+  font-size: var(--fs-h3);
+}
+.section__subtitle--intro,
+.section__subtitle--about {
+  background-color: var(--clr-accent);
+  font-size: var(--ff-secondary);
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+/*intro section*/
+/* header section */
+.byaranze {
+  overflow: hidden;
+
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 10;
+}
+/*intro section*/
+.inro {
+  position: relative;
+}
+.intro__img {
+  box-shadow: var(--bs);
+}
+.section__subtitle--intro {
+  display: inline-block;
+}
+@media (min-width: 600px) {
+  .intro {
+    display: grid;
+    width: min-content;
+    margin: 0 auto;
+    margin-top: 80px;
+    grid-column-gap: 1em;
+    grid-template-areas:
+      "img title"
+      "img subtitle";
+    grid-template-columns: min-content max-content;
+  }
+  .intro__img {
+    grid-area: img;
+    min-width: 250px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section__subtitle--intro {
+    align-self: start;
+    grid-column: -1 / 1;
+    grid-row: 2;
+    text-align: right;
+    position: relative;
+    left: -2em;
+    width: calc(100% + 2em);
+  }
+}
+/* my service section */
+.my-services {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url(../image/serviceimg.jpg);
+  background-size: cover;
+  background-blend-mode: multiply;
+  color: var(--clr-light);
+  text-align: center;
+}
+.section__title--services {
+  color: var(--clr-accent);
+  position: relative;
+}
+.section__title--services::after {
+  content: "";
+  display: block;
+  width: 3em;
+  height: 1px;
+  margin: 0.5em auto 1em;
+  background-color: var(--clr-light);
+  opacity: 0.5;
+}
+.service-title {
+  color: var(--clr-accent);
+}
+.services {
+  margin-bottom: 4em;
+}
+.service {
+  max-width: 500px;
+  margin: 0 auto;
+}
+@media (min-width: 800px) {
+  .services {
+    display: flex;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .service + .service {
+    margin-left: 2em;
+  }
+}
+
+/* about me section */
+.about-me {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.about-me__img {
+  box-shadow: var(--bs);
+}
+@media (min-width: 600px) {
+  .about-me {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-areas:
+      "title img"
+      "subtitle img"
+      "text img";
+    grid-column-gap: 1cm;
+  }
+  .section__title--about {
+    grid-area: title;
+  }
+  .section__subtitle--about {
+    grid-column: 1/-1;
+    grid-row: 2;
+    position: relative;
+    left: -2em;
+    width: calc(100% + 4em);
+    padding-left: 2em;
+    padding-right: calc (200px + 3em);
+  }
+
+  .about-me__img {
+    grid-area: img;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* start of my work */
+.my-work {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--clr-light);
+  text-align: center;
+}
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.section__subtitle11 {
+  padding-bottom: 1em;
+  color: var(--clr-accent);
+}
+
+.portfolio__item {
+  background-color: var(--clr-accent);
+  overflow: hidden;
+}
+.portfolio__img {
+  transition: transform 750ms cubic-bezier(0.5, 0, 0.5, 1), opacity 250ms linear;
+}
+.portfolio__img:hover {
+  position: relative;
+  z-index: 2;
+}
+/* i have a question by tabing  i have to look for it */
+.portfolio__img:hover,
+.portfolio__item:focus .portfolio__img {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+/* last part our footer */
+.footer {
+  background-color: #111;
+  color: var(--clr-accent);
+  text-align: center;
+  padding: 2em 0;
+  font-size: 15px;
+}
+
+.footer a {
+  color: var(--clr-accent);
+}
+.footer--link {
+  text-decoration: none;
+}
+
+.footer--link:hover,
+.social-list__link:hover {
+  opacity: 0.7;
+}
+.social-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 32px;
+}
+.social-list__item {
+  margin: 0 1em;
+  font-size: 32px;
+}
